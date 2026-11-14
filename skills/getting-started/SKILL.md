@@ -22,22 +22,14 @@ Your personal wiki of proven techniques, patterns, and tools at `~/.claude/skill
 - `skills/path/name` → Use Read tool on `~/.claude/skills/path/name/SKILL.md`
 - Load supporting files only when implementing
 
-## Mandatory Workflow 1: Before ANY Task
+## Workflow 1: Find a matching skill
 
-**1. Search skills:**
+Before a task in an area the wiki covers, search it:
 ```bash
 ~/.claude/skills/getting-started/skills-search PATTERN
 ```
 
-**2. Search conversations:**
-Dispatch subagent (see Workflow 2) to check for relevant past work.
-
-**If skills found:**
-1. READ the skill: `~/.claude/skills/path/skill-name/SKILL.md`
-2. ANNOUNCE usage: "I'm using the [Skill Name] skill"
-3. FOLLOW the skill (many are rigid requirements)
-
-**"This doesn't count as a task" is rationalization.** Skills/conversations exist and you didn't search for them or didn't use them = failed task.
+When a skill matches, read `~/.claude/skills/path/skill-name/SKILL.md`, say which skill you're using, and follow it (many are rigid requirements). When the task touches past work, run Workflow 2 too.
 
 ## Mandatory Workflow 2: Historical Context Search
 
@@ -78,15 +70,7 @@ You: Searching past conversations...
 
 ## Skills with Checklists
 
-**If a skill contains a checklist, you MUST create TodoWrite todos for EACH checklist item.**
-
-**Don't:**
-- Work through checklist mentally
-- Skip creating todos "to save time"
-- Batch multiple items into one todo
-- Mark complete without doing them
-
-**Why:** Checklists without TodoWrite tracking = steps get skipped. Every time.
+When a skill contains a checklist, track each item as its own task and mark it done only after doing it. Untracked checklist steps get skipped.
 
 **Examples:** TDD (write test, watch fail, implement, verify), Systematic Debugging (4 phases), Creating Skills (RED-GREEN-REFACTOR)
 
@@ -134,13 +118,6 @@ Want a skill that doesn't exist? Edit skills/REQUESTS.md (at ~/.claude/skills/RE
 
 **Starting conversation?** You just read this. Good.
 
-**Starting any task?** Run skills-search first, announce usage, follow what you find.
+**Starting a task the wiki covers?** Run skills-search, say which skill you're using, follow it.
 
-**Skill has checklist?** TodoWrite for every item.
-
-**Skills are mandatory when they exist, not optional.**
-
-
-## Last thing
-
-In the first response after reading this guide, you MUST announce to the user that you have read the getting started guide
+**Skill has checklist?** Track each item as a task.
